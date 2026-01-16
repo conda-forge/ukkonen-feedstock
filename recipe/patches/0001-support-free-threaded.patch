@@ -19,7 +19,7 @@ index abce5bc..e461569 100644
  from setuptools import setup
  
 -if platform.python_implementation() == 'CPython':
-+build_with_limited_api = platform.python_implementation() == 'CPython' and sysconfig.get_config_var('Py_GIL_DISABLED') != '1'
++build_with_limited_api = platform.python_implementation() == 'CPython' and sysconfig.get_config_var('Py_GIL_DISABLED') != 1
 +
 +if build_with_limited_api:
      try:

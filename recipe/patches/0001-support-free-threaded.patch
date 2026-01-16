@@ -1,0 +1,31 @@
+From 179bb55c76b273c968641a1b11a46eacf2f3a6cb Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Lo=C3=AFc=20Est=C3=A8ve?= <loic.esteve@ymail.com>
+Date: Fri, 16 Jan 2026 06:46:44 +0100
+Subject: [PATCH] Support free-threaded
+
+---
+ setup.py | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/setup.py b/setup.py
+index 7aee9c3..0f1ab9c 100644
+--- a/setup.py
++++ b/setup.py
+@@ -2,10 +2,13 @@ from __future__ import annotations
+ 
+ import platform
+ import sys
++import sysconfig
+ 
+ from setuptools import setup
+ 
+-if platform.python_implementation() == 'CPython':
++build_with_limited_api = platform.python_implementation() == 'CPython' and sysconfig.get_config_var('Py_GIL_DISABLED') != '1':
++
++if build_with_limited_api:
+     try:
+         import wheel.bdist_wheel
+     except ImportError:
+-- 
+2.52.0
+

@@ -1,4 +1,4 @@
-From 179bb55c76b273c968641a1b11a46eacf2f3a6cb Mon Sep 17 00:00:00 2001
+From cea6acecb4e993858248c25ba1fddfb12587d312 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Lo=C3=AFc=20Est=C3=A8ve?= <loic.esteve@ymail.com>
 Date: Fri, 16 Jan 2026 06:46:44 +0100
 Subject: [PATCH] Support free-threaded
@@ -8,11 +8,10 @@ Subject: [PATCH] Support free-threaded
  1 file changed, 4 insertions(+), 1 deletion(-)
 
 diff --git a/setup.py b/setup.py
-index 7aee9c3..0f1ab9c 100644
+index abce5bc..e461569 100644
 --- a/setup.py
 +++ b/setup.py
-@@ -2,10 +2,13 @@ from __future__ import annotations
- 
+@@ -1,9 +1,12 @@
  import platform
  import sys
 +import sysconfig

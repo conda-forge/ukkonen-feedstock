@@ -1,6 +1,6 @@
 {% set name = "ukkonen" %}
-{% set version = "1.0.1" %}
-{% set sha256 = "5f3fd0e9c1b2a7ea669382ec3928370f11882cec991c4d3757955b56d18895f6" %}
+{% set version = "1.1.0" %}
+{% set sha256 = "d238ac2751c967594a5ffd4d3e76a01ddcc63d01088a5c54e5fdd9e3cc7e1211" %}
 
 package:
   name: {{ name|lower }}
@@ -11,7 +11,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 6
+  number: 0
   script: "{{ PYTHON }} -m pip install . -vv"
 
 requirements:

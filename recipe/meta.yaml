@@ -9,8 +9,6 @@ package:
 source:
   url: https://github.com/asottile/{{ name }}/archive/v{{ version }}.tar.gz
   sha256: {{ sha256 }}
-  patches:
-    - patches/0001-support-free-threaded.patch
 
 build:
   number: 1

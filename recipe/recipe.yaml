@@ -1,0 +1,55 @@
+schema_version: 1
+
+context:
+  version: "1.1.0"
+
+package:
+  name: ukkonen
+  version: ${{ version }}
+
+source:
+  url: https://files.pythonhosted.org/packages/source/u/ukkonen/ukkonen-${{ version }}.tar.gz
+  sha256: fc62ce0a5b5d57198d4dc0c6ebca406b41afca2b6681af5159a6709b47286377
+
+build:
+  number: 1
+  script: ${{ PYTHON }} -m pip install . -vv
+
+requirements:
+  build:
+    - if: build_platform != target_platform
+      then:
+        - python
+        - cross-python_${{ target_platform }}
+        - cffi >=1
+    - ${{ compiler("c") }}
+    - ${{ stdlib("c") }}
+    - ${{ compiler("cxx") }}
+  host:
+    - python
+    - setuptools
+    - pip
+    - pycparser
+    - cffi >=1
+  run:
+    - python
+    - cffi >=1
+
+tests:
+  - python:
+      imports:
+        - ukkonen
+      pip_check: true
+
+about:
+  summary: Implementation of bounded Levenshtein distance (Ukkonen)
+  license: MIT
+  license_file:
+    - LICENSE
+    - licenses/LICENSE
+  homepage: https://www.github.com/asottile/ukkonen
+
+extra:
+  recipe-maintainers:
+    - tdegeus
+    - deadsnakes-issues-bot
